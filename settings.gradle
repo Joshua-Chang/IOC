@@ -1,0 +1,2 @@
+include ':app', ':library', ':Annotation', ':Complier'
+rootProject.name='IOC'
