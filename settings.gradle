@@ -1,2 +1,2 @@
-include ':app', ':library', ':Annotation', ':Complier'
+include ':app', ':library', ':Annotation', ':Complier', ':dagger'
 rootProject.name='IOC'
