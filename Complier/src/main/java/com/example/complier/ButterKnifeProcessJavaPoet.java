@@ -99,7 +99,7 @@ public class ButterKnifeProcessJavaPoet extends AbstractProcessor {
             }
         }
         if (!EmptyUtils.isEmpty(onClickElements)) {
-            for (Element element : bindViewElements) {
+            for (Element element : onClickElements) {
                 messager.printMessage(Diagnostic.Kind.NOTE, "@OnClick >>> " + element.getSimpleName());
                 if (element.getKind() == ElementKind.METHOD) {
                     ExecutableElement executableElement = (ExecutableElement) element;
@@ -141,9 +141,12 @@ public class ButterKnifeProcessJavaPoet extends AbstractProcessor {
                     int id = fieldElement.getAnnotation(BindView.class).value();
                     methodBuilder.addStatement("$N." + fieldName + " =$N.findViewById($L)", Constants.TARGET_PARAMETER_NAME, Constants.TARGET_PARAMETER_NAME, id);
                 }
+
                 if (!EmptyUtils.isEmpty(onClickMap)) {
                     for (Map.Entry<TypeElement, List<ExecutableElement>> methodEntry : onClickMap.entrySet()) {
+                        messager.printMessage(Diagnostic.Kind.NOTE, className+"@onClickMap >>> " + ClassName.get(methodEntry.getKey()));
                         if (className.equals(ClassName.get(methodEntry.getKey()))) {
+//                            messager.printMessage(Diagnostic.Kind.NOTE, "@onClickMap >>> " + methodEntry.getValue());
                             for (ExecutableElement methodElement : methodEntry.getValue()) {
                                 /**
                                  * target.findViewById(2131165312).setOnClickListener(new DebouncingOnClickListener() {
