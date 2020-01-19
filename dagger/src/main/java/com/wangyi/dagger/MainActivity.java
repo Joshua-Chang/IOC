@@ -19,8 +19,8 @@ import com.wangyi.dagger.annotation_common.OnDragCommon;
 import javax.inject.Inject;
 @ContentView(R.layout.activity_main)
 public class MainActivity extends AppCompatActivity {
-//    @Inject
-//    Student student;
+    @Inject
+    Student student;
     @BindView(R.id.bt_test1)
     Button button;
     @Override

@@ -1,2 +1,2 @@
-include ':app', ':library', ':Annotation', ':Complier', ':dagger'
+include ':app', ':library', ':Annotation', ':Complier', ':dagger', ':custom_dagger', ':use_custom_dagger'
 rootProject.name='IOC'
